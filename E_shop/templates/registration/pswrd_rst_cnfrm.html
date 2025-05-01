@@ -1,0 +1,42 @@
+{% extends 'master.html'%}
+
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+{% block content %}
+
+<section id="form"><!--form-->
+		<div class="container">
+			<div class="col-sm-4 col-sm-offset-1">
+                <div class="login-form"><!--login form-->
+						<h2>New Password</h2>
+                        {% if validLink %}
+						<form method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            {{ field.errors }}
+                            <label>{{ field.label_tag }}</label>
+                            <p>{{ field }}</p>
+                            {% endfor %}
+
+                            <button class="btn btn-default" type="submit">Save</button>
+                            
+
+                        </form>
+                        <p style="color:red;">Invalid Token</p>
+                            <p>
+                                <a href="{% url 'password_reset' %}">
+                                    Request a new Password Reset Token.
+                                </a>
+                            </p>
+                        {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+</section>
+
+{% endblock %}
