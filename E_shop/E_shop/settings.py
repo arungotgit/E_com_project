@@ -144,5 +144,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'gmailAccount'
 EMAIL_HOST_PASSWORD = 'your_password_here'  # Replace with your actual password
 
+
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
